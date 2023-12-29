@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Muhammad Shah</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <nav id="nav">
+            <a style="margin-right: 5px;" class="btn active" href="#">Home</a>
+            <a style="margin-right: 5px;" class="btn" href="#about">About</a>
+            <a class="btn" href="#work">Projects</a>
+        </nav>
+    </header>
+    <section id="hero">
+        <div class="pfp">
+            <img class="pfp" src="https://framerusercontent.com/images/UFwvQbSD1JTPBPnuIJzUFm3u0.jpeg?scale-down-to=512" alt="">
+        </div>
+        <div class="title">
+            <h1>Hi, I'm Muhammad Shah 👋</h1>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="info" style="">
+            <h1>About:</h1>
+            <p>Hi, I am Muhammad, currently a student in the UK and an aspiring engineer. In my spare time, I enjoy
+                coding, particularly building beauiful websites and creating SwiftUI & iOS apps.</p>
+        </div>
+        <div style="justify-content: center; align-self: center; margin-top: -10%;">
+            <img class="img2" src="./kashmir.png" alt="">
+        </div>
+    </section>
+    <section id="work" class="work">
+    </section>
+    <script>
+        // Add active class to the current button (highlight it)
+        var header = document.getElementById("nav");
+        var btns = header.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script>
+    <script>
+        var header = document.getElementById('hero');
+
+        function fadeOutOnScroll(element) {
+            if (!element) {
+                return;
+            }
+
+            var distanceToTop = window.pageYOffset + element.getBoundingClientRect().top;
+            var elementHeight = element.offsetHeight;
+            var scrollTop = document.documentElement.scrollTop;
+
+            var opacity = 1;
+
+            if (scrollTop > distanceToTop) {
+                opacity = 1 - (scrollTop * 8 - distanceToTop) / elementHeight;
+            }
+
+            if (opacity >= 0) {
+                element.style.opacity = opacity;
+            }
+        }
+
+        function scrollHandler() {
+            fadeOutOnScroll(header);
+        }
+
+        window.addEventListener('scroll', scrollHandler);
+    </script>
+
+</body>
+
+</html>
